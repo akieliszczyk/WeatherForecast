@@ -14,8 +14,7 @@ public class OpenWeatherSteps {
     }
 
     @Step("Open sign in page")
-    public SignInPage openSignIn() {
+    public void openSignIn() {
         openWeatherHomePage.clickButtonSignIn();
-        return new SignInPage();
     }
 }

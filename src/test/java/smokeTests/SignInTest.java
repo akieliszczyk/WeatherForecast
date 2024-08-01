@@ -3,22 +3,25 @@ package smokeTests;
 import config.BaseTest;
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.Steps;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
+import pages.OpenWeatherHomePage;
 import testSteps.OpenWeatherSteps;
 import testSteps.SignInSteps;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-public class SignInTest extends BaseTest {
+public class SignInTest {
 
     @Managed
     WebDriver driver;
 
     @Steps
     OpenWeatherSteps openWeatherSteps;
+    @Steps
     SignInSteps signInSteps;
 
 
@@ -37,12 +40,12 @@ public class SignInTest extends BaseTest {
         openWeatherSteps.openSignIn();
         signInSteps.verifyIfSignInPageWasOpened();
         signInSteps.enterCredentials(invalidUsername, invalidPassword);
+        driver.quit();
 
     }
 
     @Test
     public void testLoginWithValidCredentials() {
-        driver.get(url);
         openWeatherSteps.openSignIn();
         signInSteps.enterCredentials(validUsername, validPassword);
 
@@ -50,7 +53,6 @@ public class SignInTest extends BaseTest {
 
     @Test
     public void testLoginWithSpecialCharacters() {
-        driver.get(url);
         openWeatherSteps.openSignIn();
         signInSteps.enterCredentials(specCharacters, specCharacters);
 
