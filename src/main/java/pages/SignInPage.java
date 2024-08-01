@@ -1,27 +1,14 @@
 package pages;
 
-import dev.failsafe.internal.util.Assert;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.WebDriver;
 
 public class SignInPage extends PageObject {
 
-    public void signInWithValidCredentials(String username, String password) {
-        textboxUsername.sendKeys(username);
-        textboxPassword.sendKeys(password);
-        buttonSubmit.click();
-        Assert.isTrue(message.getText().equals("Signed in successfully."), "Error message is incorrect");
-    }
-
-    public void signInWithInvalidCredentials(String username, String password) {
-
-        textboxUsername.sendKeys(username);
-        textboxPassword.sendKeys(password);
-        buttonSubmit.click();
-        Assert.isTrue(message.getText().equals("Invalid Email or password."), "Error message is incorrect");
-    }
-
+    @FindBy(xpath = "//*[@class='first-child']")
+    WebElementFacade textSignIn;
 
     @FindBy(xpath = "//*[@class='string email optional form-control']")
     WebElementFacade textboxUsername;
@@ -34,4 +21,23 @@ public class SignInPage extends PageObject {
 
     @FindBy(xpath = "//*[@class='panel-body']")
     WebElementFacade message;
+
+
+    public void verifyIfSignInPageWasOpened() {
+        textSignIn.isDisplayed();
+        System.out.println(textSignIn.getText());
+    }
+
+    public void enterUsername(String username) {
+        textboxUsername.sendKeys(username);
+    }
+
+    public void enterPassword(String password) {
+        textboxPassword.sendKeys(password);
+    }
+
+    public void clickSubmit() {
+        buttonSubmit.click();
+    }
+
 }
