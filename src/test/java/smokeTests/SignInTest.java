@@ -29,7 +29,7 @@ public class SignInTest {
     final String url = "https://openweathermap.org/";
     final String validUsername = "kurszewska.anna@gmail.com";
     final String validPassword = "P@ss1234";
-    final String invalidUsername = "Ania";
+    final String invalidUsername = "Ania123";
     final String invalidPassword = "Ania@1234";
     final String specCharacters = "@#$%^&*!";
 
