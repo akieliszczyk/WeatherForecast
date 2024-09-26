@@ -3,7 +3,6 @@ package pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.WebDriver;
 
 public class SignInPage extends PageObject {
 
@@ -22,7 +21,6 @@ public class SignInPage extends PageObject {
     @FindBy(xpath = "//*[@class='panel-body']")
     WebElementFacade message;
 
-
     public void verifyIfSignInPageWasOpened() {
         textSignIn.isDisplayed();
         System.out.println(textSignIn.getText());
@@ -40,4 +38,7 @@ public class SignInPage extends PageObject {
         buttonSubmit.click();
     }
 
+    public String getMessage() {
+        return message.getText();
+    }
 }
