@@ -1,6 +1,6 @@
 package provider;
 
-import model.ProgramData;
+import constant.ProgramData;
 
 public class UserDataProvider {
 
