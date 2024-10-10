@@ -13,7 +13,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.WebDriver;
 import testSteps.LoggedInSteps;
-import testSteps.OpenWeatherSteps;
+import testSteps.OpenWeatherHomeSteps;
 import testSteps.SignInSteps;
 
 @ExtendWith(SerenityJUnit5Extension.class)
@@ -22,7 +22,7 @@ public class SignInTest {
     @Managed
     WebDriver driver;
     @Steps
-    OpenWeatherSteps openWeatherSteps;
+    OpenWeatherHomeSteps openWeatherSteps;
     @Steps
     SignInSteps signInSteps;
     @Steps
